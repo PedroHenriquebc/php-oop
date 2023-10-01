@@ -57,7 +57,6 @@
     print($funcionario->resumirCadFunc());
     $funcionario->modificarNumFilhos(4);
     print "<br/>";
-    print($funcionario->resumirCadFunc());
-    print "<br/>";
-    print($funcionario->__get("nome") . " possui " . $funcionario->__get("numFilhos") . " e seu telefone é: " . $funcionario->__get("telefone"));
+    //print($funcionario->resumirCadFunc());
+    print($funcionario->__get("nome") . " possui " . $funcionario->__get("numFilhos") . " filhos e seu telefone é: " . $funcionario->__get("telefone"));
 ?>
