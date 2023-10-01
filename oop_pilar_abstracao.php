@@ -6,8 +6,17 @@
         public $telefone = null;
         public $numFilhos = null;
         
+        //overload getters e setters
+        function __set($atributo, $valor) {
+            $this->$atributo = $valor;
+        }
+
+        function __get($valor) {
+            return $this->$valor;
+        }
+
         //getter e setters
-        function setNome($nome) {
+        /* function setNome($nome) {
             $this->nome = $nome;
         }
 
@@ -29,7 +38,7 @@
 
         function getTelefone() {
             return $this->telefone;
-        }
+        } */
 
         //metódos
         function resumirCadFunc() {
@@ -42,13 +51,13 @@
     }
 
     $funcionario = new Funcionario();
-    $funcionario->setNome("Pedro");
-    $funcionario->setNumFilhos(1);
-    $funcionario->setTelefone("81 9999-8888");
+    $funcionario->__set("nome", "Pedro");
+    $funcionario->__set("numFilhos", 1);
+    $funcionario->__set("telefone", "81 99999-8888");
     print($funcionario->resumirCadFunc());
     $funcionario->modificarNumFilhos(4);
     print "<br/>";
     print($funcionario->resumirCadFunc());
     print "<br/>";
-    print($funcionario->getNome() . " possui " . $funcionario->getNumFilhos() . " e seu telefone é: " . $funcionario->getTelefone());
+    print($funcionario->__get("nome") . " possui " . $funcionario->__get("numFilhos") . " e seu telefone é: " . $funcionario->__get("telefone"));
 ?>
